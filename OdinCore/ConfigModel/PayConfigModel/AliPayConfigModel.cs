@@ -1,4 +1,4 @@
-namespace Odin.Plugs.OdinCore.ConfigModel.PayConfigModel
+namespace OdinPlugs.OdinCore.ConfigModel.PayConfigModel
 {
     public class CertPath_Model
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Odin.Plugs.OdinCore.ConfigModel.RabbitMQConfigModel
+namespace OdinPlugs.OdinCore.ConfigModel.RabbitMQConfigModel
 {
     public class ArgumentsModel
     {

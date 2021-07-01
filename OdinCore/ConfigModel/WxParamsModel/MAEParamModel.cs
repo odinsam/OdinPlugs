@@ -1,4 +1,4 @@
-namespace Odin.Plugs.OdinCore.ConfigModel.WxParamsModel.Core
+namespace OdinPlugs.OdinCore.ConfigModel.WxParamsModel.Core
 {
     public class MAEParamsModel
     {

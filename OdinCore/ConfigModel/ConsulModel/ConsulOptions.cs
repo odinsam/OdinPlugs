@@ -1,4 +1,4 @@
-namespace Odin.Plugs.OdinCore.ConfigModel.ConsulModel
+namespace OdinPlugs.OdinCore.ConfigModel.ConsulModel
 {
     public class CheckOption
     {

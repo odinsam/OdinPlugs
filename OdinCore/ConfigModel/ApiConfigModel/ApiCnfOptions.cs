@@ -1,4 +1,4 @@
-namespace Odin.Plugs.OdinCore.ConfigModel.ApiConfigModel
+namespace OdinPlugs.OdinCore.ConfigModel.ApiConfigModel
 {
     public class ErrorNotifyMailModel
     {

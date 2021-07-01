@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Odin.Plugs.OdinBasicDataType.OdinEnum
+namespace OdinPlugs.OdinBasicDataType.OdinEnum
 {
     public enum EnumSsOrMs
     {

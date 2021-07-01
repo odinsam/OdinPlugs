@@ -2,11 +2,11 @@ using System.Security.AccessControl;
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.Options;
-using Odin.Plugs.OdinInject;
-using Odin.Plugs.OdinCore.ConfigModel.ConsulModel;
-using Odin.Plugs.OdinCore.ConfigModel.RabbitMQConfigModel;
+using OdinPlugs.OdinInject;
+using OdinPlugs.OdinCore.ConfigModel.ConsulModel;
+using OdinPlugs.OdinCore.ConfigModel.RabbitMQConfigModel;
 
-namespace Odin.Plugs.OdinCore.ConfigModel
+namespace OdinPlugs.OdinCore.ConfigModel
 {
     public enum EnumEnvironment
     {

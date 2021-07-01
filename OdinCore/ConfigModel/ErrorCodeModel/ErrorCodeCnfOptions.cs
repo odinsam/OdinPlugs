@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Odin.Plugs.OdinCore.ConfigModel.ErrorCodeModel
+namespace OdinPlugs.OdinCore.ConfigModel.ErrorCodeModel
 {
     public class ErrorModel
     {

@@ -2,9 +2,9 @@ using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
-using Odin.Plugs.OdinUtils.OdinFiles;
+using OdinPlugs.OdinUtils.OdinFiles;
 
-namespace Odin.Plugs.OdinCore.ConfigModel.Utils
+namespace OdinPlugs.OdinCore.ConfigModel.Utils
 {
     public class ConfigLoadHelper
     {
