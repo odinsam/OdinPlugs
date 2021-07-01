@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace Odin.Plugs.OdinCore.Models
+namespace OdinPlugs.OdinCore.Models
 {
     public class ApiCommentConfig
     {
