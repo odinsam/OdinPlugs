@@ -1,6 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="./common.props"/>
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>$(OdinGeneratePackageOnBuild)</GeneratePackageOnBuild>
+    <AssemblyName>$(OdinAssemblyName)</AssemblyName>
+    <RootNamespace>$(OdinCoreDemo)</RootNamespace>
+    <OutputType>$(OdinOutputType)</OutputType>
+    <PackageId>$(OdinPackageId)</PackageId>
+    <Authors>$(OdinAuthors)</Authors>
+    <Company>$(OdinCompany)</Company>
+    <Copyright>$(OdinCopyright)</Copyright>
+    <Product>$(OdinProduct)</Product>
+    <Description>$(OdinDescription)</Description>
+    <Version>$(OdinVersion)</Version>
+    <RepositoryType>$(OdinRepositoryType)</RepositoryType>
+    <PackageTags>$(OdinPackageTags)</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="ConfigModel\"/>
@@ -95,5 +109,7 @@
     <PackageReference Include="IGeekFan.AspNetCore.RapiDoc" Version="0.0.3"/>
     <PackageReference Include="IGeekFan.AspNetCore.Knife4jUI" Version="0.0.8"/>
     <PackageReference Include="System.Reflection.Emit" Version="4.7.0"/>
+    <PackageReference Include="zipkin4net" Version="1.5.0"/>
+    <PackageReference Include="zipkin4net.middleware.aspnetcore" Version="1.5.0"/>
   </ItemGroup>
 </Project>
