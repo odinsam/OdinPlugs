@@ -21,6 +21,9 @@ using OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
+    /// <summary>
+    /// 全局  请求拦截  拦截器
+    /// </summary>
     public class ApiInvokerFilterAttribute : IActionFilter
     {
         private string aopUri = string.Empty;

@@ -11,9 +11,11 @@ using OdinPlugs.OdinSecurity.OdinRsa;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
+    /// <summary>
+    /// 全局 返回结果 拦截器
+    /// </summary>
     public class ApiInvokerResultFilter : IResultFilter
     {
-        private OdinFilter odinFilter;
         private readonly ConfigOptions options;
         private readonly IOdinMongo mongoHelper;
         public ApiInvokerResultFilter()
