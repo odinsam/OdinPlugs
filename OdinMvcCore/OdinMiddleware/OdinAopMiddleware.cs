@@ -31,9 +31,6 @@ namespace OdinPlugs.OdinMiddleware
         private readonly IOdinMongo mongoHelper;
         private readonly RequestDelegate _next;
         private static Aop_Invoker_Model apiInvokerModel = null;
-        private static Aop_ApiInvokerRecord_Model apiInvokerRecordModel = null;
-        private static Aop_ApiInvokerCatch_Model apiInvokerCatchModel = null;
-        private static Aop_ApiInvokerThrow_Model apiInvokerThrow_Model = null;
 
         /// <summary>
         /// 管道执行到该中间件时候下一个中间件的RequestDelegate请求委托，如果有其它参数，也同样通过注入的方式获得

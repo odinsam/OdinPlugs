@@ -16,8 +16,6 @@ namespace OdinPlugs.OdinMvcCore.OdinMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly IWebHostEnvironment environment;
-        private static Aop_Invoker_Model apiInvokerModel = null;
-        private static Aop_ApiInvokerThrow_Model apiInvokerThrow_Model = null;
         private readonly Stopwatch stopWatch;
         public OdinExceptionMiddleware(RequestDelegate next, IWebHostEnvironment environment)
         {

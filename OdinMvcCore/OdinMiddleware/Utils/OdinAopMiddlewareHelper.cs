@@ -24,7 +24,6 @@ namespace OdinPlugs.OdinMvcCore.OdinMiddleware.Utils
 {
     public class OdinAopMiddlewareHelper
     {
-        private static Aop_Invoker_Model apiInvokerModel = null;
         private static Aop_ApiInvokerRecord_Model apiInvokerRecordModel = null;
         private static Aop_ApiInvokerCatch_Model apiInvokerCatchModel = null;
         private static Aop_ApiInvokerThrow_Model apiInvokerThrow_Model = null;
