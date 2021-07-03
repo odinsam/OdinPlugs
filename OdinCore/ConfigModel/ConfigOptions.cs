@@ -2,7 +2,6 @@ using System.Security.AccessControl;
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.Options;
-using OdinPlugs.OdinInject;
 using OdinPlugs.OdinCore.ConfigModel.ConsulModel;
 using OdinPlugs.OdinCore.ConfigModel.RabbitMQConfigModel;
 

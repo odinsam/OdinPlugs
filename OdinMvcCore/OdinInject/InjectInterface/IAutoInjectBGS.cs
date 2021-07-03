@@ -1,4 +1,4 @@
-namespace OdinPlugs.OdinInject.OdinMvcCore.InjectInterface
+namespace OdinPlugs.OdinMvcCore.OdinInject.InjectInterface
 {
     public interface IAutoInjectBGS
     {

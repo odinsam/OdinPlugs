@@ -10,7 +10,6 @@ using System.Text;
 using System.Transactions;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
-using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinEF.EFCore.EFExtensions.EFInterface;
 using SqlSugar;
 namespace OdinPlugs.OdinMAF.OdinEF.EFCore.EFExtensions

@@ -9,7 +9,7 @@ namespace OdinPlugs.OdinMAF.OdinAspectCore
     public class OdinAspectCoreInterceptorAttribute : AbstractInterceptorAttribute
     {
         string _str;
-        public OdinAspectCoreInterceptorAttribute(string str)
+        public OdinAspectCoreInterceptorAttribute(string str) : base()
         {
             _str = str;
         }

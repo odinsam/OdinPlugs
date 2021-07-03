@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using OdinPlugs.OdinInject;
 
 namespace OdinPlugs.OdinCore.Models.Aop
 {

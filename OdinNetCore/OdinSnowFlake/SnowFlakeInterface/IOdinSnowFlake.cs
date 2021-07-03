@@ -1,4 +1,3 @@
-using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface

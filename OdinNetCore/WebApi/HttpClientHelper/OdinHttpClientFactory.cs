@@ -3,7 +3,6 @@ using System.IO;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using OdinPlugs.OdinInject;
 using OdinPlugs.OdinExtensions;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
