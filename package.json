@@ -1,5 +1,5 @@
 {
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"scripts": {
 		"release": "standard-version",
 		"changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
