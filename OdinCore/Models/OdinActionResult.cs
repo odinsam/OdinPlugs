@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.ErrorCode;
+using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinMvcCore.MvcCore;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
@@ -170,10 +171,12 @@ namespace OdinPlugs.OdinCore.Models
             // core.SendMail(guid, api, ex, developerName, developerEmailAddress);
             return new OdinActionResult
             {
-                Data = ex,
+                Data = JsonConvert.SerializeObject(ex).ToJsonFormatString(),
+                ErrorMessage = errorModel.ErrorMessage,
                 StatusCode = errorCode,
                 ResponseCode = 200
             };
+            // return null;
         }
     }
 }
