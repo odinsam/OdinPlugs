@@ -37,13 +37,6 @@ namespace OdinPlugs.OdinMvcCore.OdinMiddleware
             catch (System.Exception ex)
             {
                 System.Console.WriteLine("=========OdinExceptionMiddleware Response Exception==========");
-                // var apiInvokerModel = new Aop_Invoker_Model();
-                // await new OdinAopMiddlewareHelper().MiddlewareException(context, apiInvokerModel, ex);
-                System.Console.WriteLine(JsonConvert.SerializeObject(ex).ToJsonFormatString());
-                // context.Response.ContentType = "application/json;charset=utf-8;";
-                // context.Response.StatusCode = 200;
-                var stream = context.Response.Body;
-                await System.Text.Json.JsonSerializer.SerializeAsync(stream, new { Name = "m ex" });
             }
         }
     }
