@@ -1,3 +1,27 @@
+## <small>1.0.7 (2021-07-04)</small>
+
+* docs(package-lock): 📃 ([8426c69](https://github.com/odinsam/OdinPlugs/commit/8426c69))
+* 📃 docs(*): 项目基础文件 ([9f94dee](https://github.com/odinsam/OdinPlugs/commit/9f94dee))
+* style(name 小写): 🌈 ([659b5d9](https://github.com/odinsam/OdinPlugs/commit/659b5d9))
+* chore(version): 🐳 ([2c02989](https://github.com/odinsam/OdinPlugs/commit/2c02989))
+* feat(Mapster): ✨ 添加 Mapster 映射框架 ([3c86aea](https://github.com/odinsam/OdinPlugs/commit/3c86aea))
+* feat(OdinInject.InjectInterface): ✨ IAutoServiceInject ([9e7ecc6](https://github.com/odinsam/OdinPlugs/commit/9e7ecc6))
+* feat(odinlink): ✨ 添加方法调用链路记录 ([491bfbe](https://github.com/odinsam/OdinPlugs/commit/491bfbe))
+* feat(OdinMvcCore.OdinExtensions): ✨ add GetDIServices<T> 方法 ([523e297](https://github.com/odinsam/OdinPlugs/commit/523e297))
+* feat(OdinMvcCore.OdinExtensions): ✨ MvcContext扩展 ([dba39dd](https://github.com/odinsam/OdinPlugs/commit/dba39dd))
+* feat(OdinNetCore.OdinSnowFlake): ✨ Utils ([c205bf6](https://github.com/odinsam/OdinPlugs/commit/c205bf6))
+* feat(zipkin): ✨ 新增zipkin链路跟踪 ([2fc36e7](https://github.com/odinsam/OdinPlugs/commit/2fc36e7))
+* fix(*): 🐞 修改命名空间 ([22dec9c](https://github.com/odinsam/OdinPlugs/commit/22dec9c))
+* fix(*): 🐞 修改bug ([9d91c49](https://github.com/odinsam/OdinPlugs/commit/9d91c49))
+* fix(OdinCore.Models): 🐞 OdinActionResult 修改命名空间以及 修改bug ([8345759](https://github.com/odinsam/OdinPlugs/commit/8345759))
+* fix(OdinMAF): 🐞 OdinAspectCoreInterceptor  修正bug ([f52d83f](https://github.com/odinsam/OdinPlugs/commit/f52d83f))
+* fix(OdinMiddleware): 🐞 Middleware修复bug，尚未完成 ([067104e](https://github.com/odinsam/OdinPlugs/commit/067104e))
+* style(middleware): 🌈 删除没用到的一些变量 ([5d7e8e7](https://github.com/odinsam/OdinPlugs/commit/5d7e8e7))
+* style(OdinMvcCore): 🌈 添加注释、修复命名空间 ([b48d632](https://github.com/odinsam/OdinPlugs/commit/b48d632))
+* refactor(csproj): 🦄 修改csproj变量模式 ([315c1a0](https://github.com/odinsam/OdinPlugs/commit/315c1a0))
+
+
+
 ## <small>1.0.6 (2021-07-01)</small>
 
 * chore(release): 1.0.6 ([878e944](https://github.com/odinsam/OdinPlugs/commit/878e944))
