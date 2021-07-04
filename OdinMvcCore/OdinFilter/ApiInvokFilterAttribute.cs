@@ -18,6 +18,7 @@ using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface;
+using OdinPlugs.OdinNetCore.OdinSnowFlake.Utils;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
@@ -40,8 +41,16 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
         }
         public virtual void OnActionExecuting(ActionExecutingContext context)
         {
-            context.HttpContext.Request.Headers["SnowFlakeId"] = OdinInjectHelper.GetService<IOdinSnowFlake>().NextId().ToString();
+            System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuting  start=============");
+            context.HttpContext.Request.Headers["odinlink-Start"] = "ApiStart";
+            context.HttpContext.Request.Headers["odinlink-Next"] = OdinSnowFlakeHelper.CreateSnowFlake().ToString();
+            System.Console.WriteLine($"     odinlink: [ {context.HttpContext.Request.Headers["odinlink-Start"]} ]");
+            System.Console.WriteLine($"odinlink-down: [ {context.HttpContext.Request.Headers["odinlink-Next"]} ]");
+            #region 保存link记录到mongodb--链路Start
+
+            #endregion
             stopWatch = new Stopwatch();
+
             stopWatch.Reset();
             if (context.ActionDescriptor.FilterDescriptors.Any(a => a.Filter.GetType() == typeof(ApiFilterAttribute)) ||
                 (!context.ActionDescriptor.FilterDescriptors.Any(a => a.Filter.GetType() == typeof(NoApiFilterAttribute)) &&
@@ -67,10 +76,12 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
 
         public virtual void OnActionExecuted(ActionExecutedContext context)
         {
+            System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
+            System.Console.WriteLine($"odinlink-returnUp: [ {context.HttpContext.Response.Headers["odinlink-return"]} ]");
+            System.Console.WriteLine($"odinlink-returnEnd: [ ApiEnd ]");
             if (context.Exception == null)
             {
                 var apiInvokerModel = FilterHelper.GetApiInvokerModel(context.HttpContext, context.Result);
-
                 var apiInvokerRecordModel = apiInvokerModel as Aop_ApiInvokerRecord_Model;
                 apiInvokerRecordModel.EndTime = UnixTimeHelper.GetUnixDateTimeMS();
                 apiInvokerRecordModel.ApiEndTime = DateTimeOffset.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
@@ -92,18 +103,6 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                     apiInvokerCatchModel.ErrorCode = responseResult.StatusCode;
                     apiInvokerCatchModel.ErrorTime = UnixTimeHelper.GetUnixDateTimeMS();
                     mongoHelper.AddModel<Aop_ApiInvokerCatch_Model>("Aop_ApiInvokerCatch", apiInvokerCatchModel);
-
-                    var cache = OdinInjectHelper.GetService<IOdinCacheManager>();
-                    var errorCode = cache.Get<ErrorCode_Model>(responseResult.StatusCode);
-                    var exceptionResult = new OdinActionResult
-                    {
-                        SnowFlakeId = apiInvokerRecordModel.Id,
-                        Data = null,
-                        StatusCode = errorCode.ErrorCode,
-                        ErrorMessage = errorCode.ErrorMessage,
-                        Message = errorCode.ShowMessage
-                    };
-                    context.Result = exceptionResult;
                 }
                 #endregion
 
@@ -113,6 +112,10 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 apiInvokerRecordModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerRecord_Model>(apiInvokerModel);
                 mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerRecordModel);
                 #endregion
+            }
+            else
+            {
+                System.Console.WriteLine(JsonConvert.SerializeObject(context.Exception).ToString());
             }
         }
     }
