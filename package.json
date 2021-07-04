@@ -29,7 +29,7 @@
 			"path": "cz-conventional-changelog"
 		}
 	},
-	"name": "OdinPlugs",
+	"name": "odinplugs",
 	"description": "OdinPlugs",
 	"main": "index.js",
 	"repository": {
