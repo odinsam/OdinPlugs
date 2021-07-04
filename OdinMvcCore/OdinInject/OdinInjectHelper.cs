@@ -8,25 +8,31 @@ using System.Security.Cryptography.X509Certificates;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
 using OdinPlugs.OdinMAF.OdinCapService;
+using Microsoft.AspNetCore.Http;
 
 namespace OdinPlugs.OdinMvcCore.OdinInject
 {
     public static class OdinInjectHelper
     {
+        public static IServiceProvider serviceProvider { get; set; }
+
         public static T GetService<T>() where T : class
         {
             return serviceProvider.GetRequiredService<T>();
         }
-        public static void SetServiceProvider(this IServiceCollection services)
-        {
-            serviceProvider = services.BuildServiceProvider();
-        }
-        public static ServiceProvider serviceProvider { get; set; }
+
         public static T GetService<T>(this IServiceCollection services) where T : class
         {
             ServiceProvider serviceProvider = services.BuildServiceProvider();
             return serviceProvider.GetRequiredService<T>();
         }
+
+        public static void SetServiceProvider(this IServiceCollection services)
+        {
+            serviceProvider = services.BuildServiceProvider();
+        }
+
+
         /// <summary>
         /// ~ 每次都获取同一个实例
         /// </summary>
@@ -43,6 +49,7 @@ namespace OdinPlugs.OdinMvcCore.OdinInject
                 // ~ 找到所有接口类型
                 if (t.IsInterface)
                 {
+                   
                     // ~ 找到该接口下所有的实现类，即需要注入的类型
                     var types = ass.GetExportedTypes().Where(ts => ts.GetInterfaces().Contains(t)).ToArray();
                     foreach (var tc in types)

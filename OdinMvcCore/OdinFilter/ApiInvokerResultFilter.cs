@@ -52,10 +52,6 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 }
                 context.Result = result;
             }
-#if DEBUG
-            System.Console.WriteLine(JsonConvert.SerializeObject(context.Result).ToJsonFormatString());
-#endif
-
         }
     }
 }
