@@ -111,5 +111,6 @@
     <PackageReference Include="System.Reflection.Emit" Version="4.7.0"/>
     <PackageReference Include="zipkin4net" Version="1.5.0"/>
     <PackageReference Include="zipkin4net.middleware.aspnetcore" Version="1.5.0"/>
+    <PackageReference Include="Mapster" Version="7.2.0"/>
   </ItemGroup>
 </Project>
