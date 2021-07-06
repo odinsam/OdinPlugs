@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using OdinPlugs.OdinUtils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.OdinAttr
@@ -10,10 +11,9 @@ namespace OdinPlugs.OdinMvcCore.OdinAttr
         {
             CreateTime = UnixTimeHelper.GetUnixDateTime();
         }
-
-        public CreateTimeAttribute(string time)
+        public CreateTimeAttribute(string time, string timeFormat = "yyyy/MM/dd HH:mm:ss")
         {
-            CreateTime = UnixTimeHelper.FromDateTime(Convert.ToDateTime(time));
+            CreateTime = UnixTimeHelper.FromDateTime(DateTime.ParseExact(time, timeFormat, System.Globalization.CultureInfo.CurrentCulture));
         }
     }
 }
