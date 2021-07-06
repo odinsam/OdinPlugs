@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using System.Security.AccessControl;
+using System.Text.Json.Serialization;
 using OdinPlugs.OdinBasicDataType.OdinEnum.EnumLink;
+using OdinPlugs.OdinJson.ContractResolver;
 
 namespace OdinPlugs.OdinCore.Models.ApiLinkModels
 {
@@ -10,6 +12,7 @@ namespace OdinPlugs.OdinCore.Models.ApiLinkModels
         /// 当次链路唯一标识
         /// </summary>
         /// <value></value>
+        [JsonConverter(typeof(JsonConverterLong))]
         public long Id { get; set; }
 
         /// <summary>
