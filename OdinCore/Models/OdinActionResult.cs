@@ -2,6 +2,7 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
@@ -52,7 +53,7 @@ namespace OdinPlugs.OdinCore.Models
             //     PropertyNamingPolicy = new LowerCaseNamingPolicy (),
             // };
             var options =
-                (context.HttpContext.RequestServices.GetService(typeof(Microsoft.Extensions.Options.IOptions<MvcNewtonsoftJsonOptions>)) as dynamic).Value as MvcNewtonsoftJsonOptions;
+                (context.HttpContext.RequestServices.GetService(typeof(IOptions<MvcNewtonsoftJsonOptions>)) as dynamic).Value as MvcNewtonsoftJsonOptions;
             // response.WriteAsync (System.Text.Json.JsonSerializer.Serialize (this));
             // response.WriteAsync (System.Text.Json.JsonSerializer.Serialize (this, options).UnicodeToString ());
             response.WriteAsync(JsonConvert.SerializeObject(
