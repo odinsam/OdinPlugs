@@ -1,13 +1,18 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using OdinPlugs.OdinJson.ContractResolver;
+using OdinPlugs.OdinNetCore.OdinJson.ContractResolver;
+using OdinPlugs.OdinNetCore.OdinJson.JsonConvert;
 
 namespace OdinPlugs.OdinCore.Models.Aop
 {
     public class Aop_Invoker_Model
     {
         /// <summary>
-        /// 自动编号
+        /// 自动编号,与链路编号一致
         /// </summary>
         /// <returns></returns>
+        [JsonConverter(typeof(JsonConverterLong))]
         public long? Id { get; set; }
 
         public string GUID { get; set; } = "";

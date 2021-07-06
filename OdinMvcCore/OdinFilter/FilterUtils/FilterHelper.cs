@@ -16,7 +16,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils
         {
             HttpRequest request = context.Request;
             var apiInvokerModel = new Aop_ApiInvokerRecord_Model();
-            apiInvokerModel.Id = Convert.ToInt64(context.Request.Headers["SnowFlakeId"]);
+            apiInvokerModel.Id = Convert.ToInt64(context.Items["odinlinkId"]);
             apiInvokerModel.RequestUrl = request.Path.ToString();
             apiInvokerModel.RequestHeader = request.Headers.ToDictionary(x => x.Key, v => string.Join(";", v.Value.ToList()));
             apiInvokerModel.ApiMethod = request.Method;
