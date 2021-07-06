@@ -5,7 +5,7 @@ namespace OdinPlugs.OdinNetCore.OdinSnowFlake.Utils
 {
     public static class OdinSnowFlakeHelper
     {
-        public static long CreateSnowFlake()
+        public static long CreateSnowFlakeId()
         {
             return OdinInjectHelper.GetService<IOdinSnowFlake>().NextId();
         }
