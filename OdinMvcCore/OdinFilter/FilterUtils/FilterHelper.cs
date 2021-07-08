@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.Aop;
 using OdinPlugs.OdinMvcCore.OdinAttr;
-using OdinPlugs.OdinUtils.OdinTime;
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils
 {

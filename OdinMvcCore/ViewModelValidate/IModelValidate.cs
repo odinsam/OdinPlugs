@@ -5,6 +5,5 @@ namespace OdinPlugs.OdinMvcCore.ViewModelValidate
 {
     public interface IModelValidate
     {
-        OdinActionResult ValidateModel(JObject jObj);
     }
 }

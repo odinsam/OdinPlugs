@@ -4,7 +4,8 @@ using System.Linq;
 using Consul;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OdinPlugs.OdinUtils.OdinAlgorithm.OdinRandom;
+using OdinPlugs.OdinUtils.Utils.OdinAlgorithm.OdinRandom;
+
 namespace OdinPlugs.OdinMAF.OdinConsul.Utils
 {
     public class ConsulHelper

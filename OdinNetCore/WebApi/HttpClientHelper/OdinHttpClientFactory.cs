@@ -3,7 +3,6 @@ using System.IO;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using OdinPlugs.OdinExtensions;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
@@ -11,7 +10,7 @@ using System.Reflection;
 using Newtonsoft.Json.Linq;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
 using OdinPlugs.OdinMvcCore.OdinInject;
-using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
 namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper
 {

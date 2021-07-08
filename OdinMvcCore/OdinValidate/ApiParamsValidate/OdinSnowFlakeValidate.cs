@@ -2,9 +2,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
-using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
 namespace OdinPlugs.OdinMvcCore.OdinValidate.ApiParamsValidate
 {

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Redis;
 using Newtonsoft.Json;
 using OdinPlugs.OdinMAF.OdinRedis;
-using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
 namespace OdinPlugs.OdinMAF.OdinRedis
 {

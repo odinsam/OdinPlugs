@@ -1,3 +1,4 @@
+
 using Serilog.Sinks.SystemConsole.Themes;
 
 namespace OdinPlugs.OdinMAF.OdinSerilog.Models

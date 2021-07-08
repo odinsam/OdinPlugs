@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using OdinPlugs.OdinUtils.OdinTime;
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.OdinAttr
 {

@@ -1,8 +1,7 @@
 using System.IO;
-using System.Runtime.InteropServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
-using OdinPlugs.OdinUtils.OdinFiles;
+using OdinPlugs.OdinUtils.Utils.OdinFiles;
 
 namespace OdinPlugs.OdinCore.ConfigModel.Utils
 {

@@ -12,8 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OdinPlugs.OdinBasicDataType.OdinEnum;
-using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
 namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper
 {

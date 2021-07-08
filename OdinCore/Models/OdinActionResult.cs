@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.ErrorCode;
-using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinMvcCore.MvcCore;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
 using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinMvcCore.ViewModelValidate;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
 namespace OdinPlugs.OdinCore.Models
 {
@@ -72,7 +72,7 @@ namespace OdinPlugs.OdinCore.Models
         // validateModel return result
         public static OdinActionResult OdinResult(this IModelValidate validate, Object data, int responseCode = 200, string message = "",
             string errorCode = "ok", string token = "", string developerName = "", string developerEmailAddress = "",
-            ApiCommentConfig api = null, IMvcApiCore core = null)
+            ApiCommentConfig api = null)
         {
             IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
             ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
@@ -94,7 +94,7 @@ namespace OdinPlugs.OdinCore.Models
         }
         public static OdinActionResult OdinResult(this Controller controller, Object data, string message = "ok", int responseCode = 200,
             string errorCode = "ok", string token = "", string developerName = "", string developerEmailAddress = "",
-            ApiCommentConfig api = null, IMvcApiCore core = null)
+            ApiCommentConfig api = null)
         {
             IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
             if (errorCode != "ok")
@@ -114,7 +114,7 @@ namespace OdinPlugs.OdinCore.Models
 
         public static OdinActionResult OdinErrorResult(this IModelValidate validate, string errorCode = "sys-error", MethodBase methosBase = null,
             string developerName = "", string developerEmailAddress = "",
-            ApiCommentConfig api = null, IMvcApiCore core = null)
+            ApiCommentConfig api = null)
         {
             IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
             ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
@@ -130,7 +130,7 @@ namespace OdinPlugs.OdinCore.Models
         }
 
         // controller return error
-        public static OdinActionResult OdinErrorResult(this Controller controller, string errorCode, RequestParamsModel jobjParam, IMvcApiCore core, string guid, ApiCommentConfig api)
+        public static OdinActionResult OdinErrorResult(this Controller controller, string errorCode, RequestParamsModel jobjParam, string guid, ApiCommentConfig api)
         {
             IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
             ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);

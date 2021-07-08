@@ -4,7 +4,7 @@ using System.Linq;
 using CacheManager.Core;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
-using OdinPlugs.OdinExtensions.BasicExtensions.OdinString;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using SqlSugar;
 
 namespace OdinPlugs.OdinMAF.OdinCacheManager

@@ -1,5 +1,6 @@
 
-using OdinPlugs.OdinUtils.OdinTime;
+
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinCore.Models.ErrorCode
 {

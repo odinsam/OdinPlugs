@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models;
-using OdinPlugs.OdinUtils.OdinTime;
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.MvcCore
 {

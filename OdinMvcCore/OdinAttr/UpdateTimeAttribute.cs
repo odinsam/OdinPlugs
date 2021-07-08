@@ -1,5 +1,5 @@
 ﻿using System;
-using OdinPlugs.OdinUtils.OdinTime;
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.OdinAttr
 {

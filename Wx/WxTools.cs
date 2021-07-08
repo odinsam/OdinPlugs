@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
-using OdinPlugs.OdinUtils.OdinTime;
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 using OdinPlugs.Wx.Models;
 using OdinPlugs.Wx.Models.MAEModel.EventModel;
 using OdinPlugs.Wx.Models.MAEModel.MessageModel;

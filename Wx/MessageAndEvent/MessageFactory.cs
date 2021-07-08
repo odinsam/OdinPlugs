@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using OdinPlugs.OdinUtils.OdinTime;
+using OdinPlugs.OdinUtils.Utils.OdinTime;
 using OdinPlugs.Wx.Models.MAEModel;
 using OdinPlugs.Wx.Models.MAEModel.EventModel;
 using OdinPlugs.Wx.Models.MAEModel.MessageModel;
