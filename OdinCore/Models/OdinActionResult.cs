@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.ErrorCode;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinMvcCore.MvcCore;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinMvcCore.ViewModelValidate;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
@@ -74,7 +74,7 @@ namespace OdinPlugs.OdinCore.Models
             string errorCode = "ok", string token = "", string developerName = "", string developerEmailAddress = "",
             ApiCommentConfig api = null)
         {
-            IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
+            IOdinCacheManager cacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
             ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
             return new OdinActionResult
             {
@@ -96,7 +96,7 @@ namespace OdinPlugs.OdinCore.Models
             string errorCode = "ok", string token = "", string developerName = "", string developerEmailAddress = "",
             ApiCommentConfig api = null)
         {
-            IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
+            IOdinCacheManager cacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
             if (errorCode != "ok")
             {
                 ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
@@ -116,9 +116,9 @@ namespace OdinPlugs.OdinCore.Models
             string developerName = "", string developerEmailAddress = "",
             ApiCommentConfig api = null)
         {
-            IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
+            IOdinCacheManager cacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
             ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
-            var odinErrorCodeHelper = OdinInjectHelper.GetService<IOdinErrorCode>();
+            var odinErrorCodeHelper = OdinInjectCore.GetService<IOdinErrorCode>();
             return new OdinActionResult
             {
                 Message = $"{errorModel.ShowMessage}",
@@ -132,7 +132,7 @@ namespace OdinPlugs.OdinCore.Models
         // controller return error
         public static OdinActionResult OdinErrorResult(this Controller controller, string errorCode, RequestParamsModel jobjParam, string guid, ApiCommentConfig api)
         {
-            IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
+            IOdinCacheManager cacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
             ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
             System.Diagnostics.StackTrace ss = new System.Diagnostics.StackTrace(true);
             System.Reflection.MethodBase mb = ss.GetFrame(1).GetMethod();
@@ -163,7 +163,7 @@ namespace OdinPlugs.OdinCore.Models
         //controller return catchResult
         public static OdinActionResult OdinCatchResult(this Controller controller, System.Exception ex, string errorCode = "sys-catcherror")
         {
-            IOdinCacheManager cacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
+            IOdinCacheManager cacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
             System.Diagnostics.StackTrace ss = new System.Diagnostics.StackTrace(true);
             System.Reflection.MethodBase mb = ss.GetFrame(1).GetMethod();
             var superMethodName = mb.Name;

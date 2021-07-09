@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Caching.Distributed;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinMAF.OdinRedis
 {
-    public interface IOdinRedisCache : IAutoInjectWithParamas
+    public interface IOdinRedisCache : IAutoInjectWithParams
     {
         /// <summary>
         /// 初始化Redis

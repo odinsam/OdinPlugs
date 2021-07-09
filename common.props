@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <!-- 变量控制 -->
-        <OdinVersion>1.0.6</OdinVersion>
+        <OdinVersion>1.0.0</OdinVersion>
         <OdinRootNamespace>OdinPlugs</OdinRootNamespace>
         <OdinGeneratePackageOnBuild>true</OdinGeneratePackageOnBuild>
         <OdinAssemblyName>OdinPlugs</OdinAssemblyName>
@@ -9,14 +9,15 @@
         <OdinOutputType>Library</OdinOutputType>
 
         
-        <OdinPlugsVersion>1.06</OdinPlugsVersion>
+        <OdinPlugsVersion>1.0.0-alpha.210708</OdinPlugsVersion>
         <OdinPackageId>$(OdinAssemblyName)</OdinPackageId>
         <OdinAuthors>odinSam</OdinAuthors>
         <OdinCompany>odinsam</OdinCompany>
-        <OdinCopyright>odinsam</OdinCopyright>
+        <OdinCopyright>版权所有 (c) odinsam 2021</OdinCopyright>
         <OdinProduct></OdinProduct>
-        <OdinDescription></OdinDescription>
+        <OdinDescription>the OdinPlugs utils package</OdinDescription>
         <OdinRepositoryType>git</OdinRepositoryType>
-        <OdinPackageTags>test;standard</OdinPackageTags>
+        <OdinPackageTags>utils;standard</OdinPackageTags>
+        <OdinGitUrl>https://github.com/odinsam</OdinGitUrl>
     </PropertyGroup>
 </Project>

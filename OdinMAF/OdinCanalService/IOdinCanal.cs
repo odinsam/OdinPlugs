@@ -1,4 +1,4 @@
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 using OdinPlugs.OdinMAF.OdinCanalService.OdinCanalModels;
 
 namespace OdinPlugs.OdinMAF.OdinCanalService

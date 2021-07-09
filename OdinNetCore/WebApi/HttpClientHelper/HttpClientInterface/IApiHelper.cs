@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using OdinPlugs.OdinBasicDataType.OdinEnum;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface
 {
-    public interface IApiHelper : IAutoInjectWithParamas
+    public interface IApiHelper : IAutoInjectWithParams
     {
         /// <summary>
         /// ~ 通过sslCer 重构 HttpClient

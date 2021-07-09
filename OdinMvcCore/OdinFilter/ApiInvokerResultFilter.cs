@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinMongoDb;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinSecurity.OdinRsa;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
@@ -19,8 +19,8 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
         private readonly IOdinMongo mongoHelper;
         public ApiInvokerResultFilter()
         {
-            this.options = OdinInjectHelper.GetService<ConfigOptions>(); ;
-            this.mongoHelper = OdinInjectHelper.GetService<IOdinMongo>();
+            this.options = OdinInjectCore.GetService<ConfigOptions>(); ;
+            this.mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
         }
         public void OnResultExecuted(ResultExecutedContext context) { }
 

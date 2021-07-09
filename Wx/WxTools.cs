@@ -5,7 +5,7 @@ using System.Xml.Linq;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OdinPlugs.OdinMvcCore.OdinInject;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
@@ -24,7 +24,7 @@ namespace OdinPlugs.Wx
             {
                 var url_getAccessToken = WxConfigFactory.GetConfig().GetWxApiServerUrl();
                 var apiPath_getAccessToken = WxConfigFactory.GetConfig().GetWxServerAccessTokenUrlPath();
-                var odinHttpClientFactory = OdinInjectHelper.GetService<IOdinHttpClientFactory>();
+                var odinHttpClientFactory = OdinInjectCore.GetService<IOdinHttpClientFactory>();
                 var result = odinHttpClientFactory.GetRequestAsync<AccessToken_Model>("OdinClient", url_getAccessToken + apiPath_getAccessToken);
                 AccessToken_Model accessToken = result.Result;
                 WxConfigFactory.GetConfig().WxApiAccessToken = accessToken;

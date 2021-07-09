@@ -1,6 +1,6 @@
 using OdinPlugs.OdinCore.ConfigModel.RabbitMQConfigModel;
 using OdinPlugs.OdinCore.Models.RabbitMQModel;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinMAF.OdinRabbitMQ.RabbitMQSend
 {

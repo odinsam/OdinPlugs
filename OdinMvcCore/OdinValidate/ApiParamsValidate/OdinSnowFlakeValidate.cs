@@ -2,9 +2,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
-using OdinPlugs.OdinMvcCore.OdinInject;
-using OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
+using OdinPlugs.SnowFlake.SnowFlakeInterface;
 
 namespace OdinPlugs.OdinMvcCore.OdinValidate.ApiParamsValidate
 {
@@ -14,8 +14,8 @@ namespace OdinPlugs.OdinMvcCore.OdinValidate.ApiParamsValidate
         public string GetErrorMessage() => $"参数并非SnowFlake Id.";
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var options = OdinInjectHelper.GetService<ConfigOptions>();
-            var snowFlake = OdinInjectHelper.GetService<IOdinSnowFlake>();
+            var options = OdinInjectCore.GetService<ConfigOptions>();
+            var snowFlake = OdinInjectCore.GetService<IOdinSnowFlake>();
             string[] result = null;
             string resultStr = null;
             try

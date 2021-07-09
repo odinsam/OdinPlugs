@@ -14,7 +14,6 @@ using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinMAF.OdinMongoDb;
 using OdinPlugs.OdinMvcCore.OdinHttp;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinNetCore.OdinAutoMapper;
 using OdinPlugs.OdinMvcCore.OdinAttr;
 

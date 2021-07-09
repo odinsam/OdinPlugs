@@ -1,5 +1,5 @@
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
-using OdinPlugs.OdinMvcCore.OdinInject;
 namespace OdinPlugs.OdinCore.Models.Exception
 {
     public class OdinException : System.Exception
@@ -12,7 +12,7 @@ namespace OdinPlugs.OdinCore.Models.Exception
         public OdinException(string errorCode, string message = "") : base(message)
         {
             if (this.odinErrorCodeHelper == null)
-                this.odinErrorCodeHelper = OdinInjectHelper.GetService<IOdinErrorCode>();
+                this.odinErrorCodeHelper = OdinInjectCore.GetService<IOdinErrorCode>();
             var errorModel = this.odinErrorCodeHelper.GetErrorModel(errorCode);
             this.ErrorCode = errorCode;
             message = errorModel.ErrorMessage;

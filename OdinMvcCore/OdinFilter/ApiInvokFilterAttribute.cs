@@ -9,14 +9,14 @@ using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinCore.Models.Aop;
 using OdinPlugs.OdinCore.Models.ApiLinkModels;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinMongoDb;
 using OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface;
 using OdinPlugs.OdinNetCore.OdinAutoMapper;
-using OdinPlugs.OdinNetCore.OdinSnowFlake.Utils;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
+using OdinPlugs.SnowFlake.SnowFlakeInterface;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
@@ -34,16 +34,16 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
 
         public ApiInvokerFilterAttribute()
         {
-            this.options = OdinInjectHelper.GetService<ConfigOptions>();
-            this.mongoHelper = OdinInjectHelper.GetService<IOdinMongo>();
+            this.options = OdinInjectCore.GetService<ConfigOptions>();
+            this.mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
         }
         public virtual void OnActionExecuting(ActionExecutingContext context)
         {
             System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuting  start=============");
             stopWatch = Stopwatch.StartNew();
             stopWatch.Restart();
-            var odinLinkMonitor = OdinInjectHelper.GetService<IOdinLinkMonitor>();
-            var snowFlakeId = OdinSnowFlakeHelper.CreateSnowFlakeId();
+            var odinLinkMonitor = OdinInjectCore.GetService<IOdinLinkMonitor>();
+            var snowFlakeId = OdinInjectCore.GetService<IOdinSnowFlake>().CreateSnowFlakeId();
             // 创建链路，并生成起始节点
             var linkMonitor = odinLinkMonitor.CreateOdinLinkMonitor(snowFlakeId);
             context.HttpContext.Items.Add("odinlinkId", snowFlakeId);
@@ -80,7 +80,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
         public virtual void OnActionExecuted(ActionExecutedContext context)
         {
             System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
-            var odinLinkMonitor = OdinInjectHelper.GetService<IOdinLinkMonitor>();
+            var odinLinkMonitor = OdinInjectCore.GetService<IOdinLinkMonitor>();
             stopWatch.Stop();
             var elapseTime = stopWatch.ElapsedMilliseconds;
             Dictionary<long, Stack<OdinApiLinkModel>> linkMonitor = null;
@@ -99,7 +99,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 (context.Result as OdinActionResult).SnowFlakeId = apiInvokerModel.Id;
                 apiInvokerModel.ReturnValue = JsonConvert.SerializeObject(apiResult);
 
-                var mongoHelper = OdinInjectHelper.GetService<IOdinMongo>();
+                var mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
 
                 #region 如果方法调用返回catch异常   保存记录结果到mongodb
                 var responseResult = JsonConvert.DeserializeObject<OdinActionResult>(apiInvokerRecordModel.ReturnValue);

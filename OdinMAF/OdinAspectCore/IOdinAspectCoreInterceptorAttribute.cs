@@ -1,5 +1,6 @@
 using AspectCore.DynamicProxy;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
+
 namespace OdinPlugs.OdinMAF.OdinAspectCore
 {
     public interface IOdinAspectCoreInterceptorAttribute : IAutoInject

@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 using Serilog;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models.Aop;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinMAF.OdinMongoDb;
 using OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils;
 using OdinPlugs.OdinNetCore.OdinAutoMapper;
@@ -16,6 +15,7 @@ using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
+using OdinPlugs.OdinInject;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
@@ -29,8 +29,8 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
 
         public HttpGlobalExceptionFilter()
         {
-            this.options = OdinInjectHelper.GetService<ConfigOptions>();
-            this.mongoHelper = OdinInjectHelper.GetService<IOdinMongo>();
+            this.options = OdinInjectCore.GetService<ConfigOptions>();
+            this.mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
         }
 
         public void OnException(ExceptionContext context)
@@ -40,7 +40,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
 
             #region 保存调用记录到mongodb
             var apiInvokerRecordModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerRecord_Model>(apiInvokerModel);
-            var mongoHelper = OdinInjectHelper.GetService<IOdinMongo>();
+            var mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
             mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerRecordModel);
             #endregion
 
@@ -49,11 +49,11 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
             apiInvokerThrow.Ex = context.Exception;
             apiInvokerThrow.ErrorMessage = context.Exception.Message;
             apiInvokerThrow.ErrorTime = UnixTimeHelper.GetUnixDateTimeMS();
-            mongoHelper = OdinInjectHelper.GetService<IOdinMongo>();
+            mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
             mongoHelper.AddModel<Aop_ApiInvokerThrow_Model>("Aop_ApiInvokerThrow", apiInvokerThrow);
             #endregion
 
-            var cache = OdinInjectHelper.GetService<IOdinCacheManager>();
+            var cache = OdinInjectCore.GetService<IOdinCacheManager>();
             var errorCode = cache.Get<ErrorCode_Model>("sys-error");
             var exceptionResult = new OdinActionResult
             {

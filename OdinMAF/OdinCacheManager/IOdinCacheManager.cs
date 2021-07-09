@@ -1,11 +1,11 @@
 using System;
 using CacheManager.Core;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 using SqlSugar;
 
 namespace OdinPlugs.OdinMAF.OdinCacheManager
 {
-    public interface IOdinCacheManager : ICacheService, IAutoInjectWithParamas
+    public interface IOdinCacheManager : ICacheService, IAutoInjectWithParams
     {
         void Expire(string key, string region, DateTimeOffset absoluteExpiration);
 

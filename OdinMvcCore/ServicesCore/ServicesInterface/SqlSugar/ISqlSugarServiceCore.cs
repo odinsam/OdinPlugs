@@ -1,4 +1,4 @@
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinMvcCore.ServicesCore.ServicesInterface.SqlSugar
 {

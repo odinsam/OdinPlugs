@@ -12,15 +12,17 @@ using Microsoft.VisualBasic.CompilerServices;
 using Newtonsoft.Json;
 using OdinPlugs.OdinBasicDataType.OdinEnum.EnumLink;
 using OdinPlugs.OdinCore.Models.ApiLinkModels;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface;
-using OdinPlugs.OdinNetCore.OdinSnowFlake.Utils;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
+using OdinPlugs.SnowFlake.SnowFlakeInterface;
 
 namespace OdinPlugs.OdinMvcCore.OdinLinkMonitor
 {
     public class OdinLinkMonitor : IOdinLinkMonitor
     {
         Dictionary<long, Stack<OdinApiLinkModel>> linksDic;
+        static IOdinSnowFlake snowFlake = OdinInjectCore.GetService<IOdinSnowFlake>();
 
         /// <summary>
         /// 创建链路监控对象
@@ -45,7 +47,7 @@ namespace OdinPlugs.OdinMvcCore.OdinLinkMonitor
                 Id = linkSnowFlakeId,
                 LinkStatusEnum = EnumLinkStatus.Start,
                 LinkStatusStr = EnumLinkStatus.Start.ToString(),
-                LinkNext = OdinSnowFlakeHelper.CreateSnowFlakeId(),
+                LinkNext = snowFlake.CreateSnowFlakeId(),
                 LinkSort = 0,
             };
             stackApiLink.Push(linkModel);
@@ -78,7 +80,7 @@ namespace OdinPlugs.OdinMvcCore.OdinLinkMonitor
                         LinkStatusStr = EnumLinkStatus.Invoker.ToString(),
                         // 在栈中获取上次的链路节点的next值，作为当前的节点的前一次的值 
                         LinkPrevious = stackTopele.LinkNext,
-                        LinkNext = OdinSnowFlakeHelper.CreateSnowFlakeId(),
+                        LinkNext = snowFlake.CreateSnowFlakeId(),
                         InvokerClassFullName = context.ServiceMethod.DeclaringType.FullName,
                         InvokerClassName = context.ServiceMethod.DeclaringType.Name,
                         InvokerMethodName = context.ServiceMethod.Name,
@@ -139,7 +141,7 @@ namespace OdinPlugs.OdinMvcCore.OdinLinkMonitor
                         InvokerReturnStatusEnum = invokerReturnStatusenum,
                         InvokerReturnStatusStr = invokerReturnStatusenum.ToString(),
                         InvokerResult = result,
-                        LinkNext = OdinSnowFlakeHelper.CreateSnowFlakeId(),
+                        LinkNext = snowFlake.CreateSnowFlakeId(),
                         ElapsedTime = stopwatch.ElapsedMilliseconds,
                         InvokerClassFullName = context.ServiceMethod.DeclaringType?.FullName,
                         InvokerClassName = context.ServiceMethod.DeclaringType?.Name,

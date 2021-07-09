@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using OdinPlugs.OdinBasicDataType.OdinEnum.EnumLink;
 using OdinPlugs.OdinCore.Models.ApiLinkModels;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface
 {

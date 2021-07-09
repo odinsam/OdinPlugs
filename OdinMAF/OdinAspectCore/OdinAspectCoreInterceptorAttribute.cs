@@ -4,10 +4,8 @@ using System.Dynamic;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy;
 using Newtonsoft.Json;
-using OdinPlugs.OdinMvcCore.OdinInject;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface;
-using OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface;
-using OdinPlugs.OdinNetCore.OdinSnowFlake.Utils;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using Serilog;
 
@@ -24,7 +22,7 @@ namespace OdinPlugs.OdinMAF.OdinAspectCore
             try
             {
                 System.Console.WriteLine($"=============OdinAspectCoreInterceptorAttribute  request  start=============");
-                var odinLinkMonitor = OdinInjectHelper.GetService<IOdinLinkMonitor>();
+                var odinLinkMonitor = OdinInjectCore.GetService<IOdinLinkMonitor>();
                 var linkMonitorId = Convert.ToInt64(context.GetHttpContext().Items["odinlinkId"]);
                 var linkMonitor = odinLinkMonitor.ApiInvokerLinkMonitor(context);
                 System.Console.WriteLine(JsonConvert.SerializeObject(linkMonitor[linkMonitorId].Peek()).ToJsonFormatString());
@@ -51,7 +49,7 @@ namespace OdinPlugs.OdinMAF.OdinAspectCore
 
                 System.Console.WriteLine($"=============OdinAspectCoreInterceptorAttribute  return  start=============");
                 // stopWatch.Stop();
-                var odinLinkMonitor = OdinInjectHelper.GetService<IOdinLinkMonitor>();
+                var odinLinkMonitor = OdinInjectCore.GetService<IOdinLinkMonitor>();
                 var linkMonitorId = Convert.ToInt64(context.GetHttpContext().Items["odinlinkId"]);
                 Console.WriteLine($"isSuccess:{isSuccess}");
                 var linkMonitor = odinLinkMonitor.ApiInvokerToEndLinkMonitor(context, isSuccess, stopWatch);

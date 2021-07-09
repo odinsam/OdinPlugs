@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinCapService;
 using OdinPlugs.OdinMAF.OdinEF.EFCore.EFExtensions.EFInterface;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using Serilog;
 using SqlSugar;
 using SqlSugar.IOC;
@@ -637,7 +637,7 @@ namespace OdinPlugs.OdinMAF.OdinEF.EFCore.EFExtensions
 
         public void ExecuteTranscationByCap<TEntity>(string publishName, TEntity contentObj, Action<ISqlSugarClient, TEntity> action = null, IDictionary<string, string> headers = null)
         {
-            OdinInjectHelper.GetService<IOdinCapEventBus>().CapTransactionPublish<TEntity>(
+            OdinInjectCore.GetService<IOdinCapEventBus>().CapTransactionPublish<TEntity>(
                 publishName,
                 contentObj,
                 action,

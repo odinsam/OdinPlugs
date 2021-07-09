@@ -197,13 +197,7 @@ namespace OdinPlugs.OdinCore.ConfigModel
         public int DefaultDatabase { get; set; } = 0;
         public string InstanceName { get; set; }
     }
-    public class SslCerOptions
-    {
-        public string ClientName { get; set; }
-        public string CerName { get; set; }
-        public string CerPassword { get; set; }
-        public string CerPath { get; set; }
-    }
+
 
     public class WebUIConfigModel
     {
@@ -273,6 +267,7 @@ namespace OdinPlugs.OdinCore.ConfigModel
         public long DataCenterId { get; set; }
         public long WorkerId { get; set; }
     }
+
     public class ConfigOptions
     {
         public EnumEnvironment EnvironmentName { get; set; }
@@ -298,7 +293,6 @@ namespace OdinPlugs.OdinCore.ConfigModel
         public LocalHostModel LocalHost { get; set; }
         public CrossDomainModel CrossDomain { get; set; }
         public RedisConfigModel Redis { get; set; }
-        public List<SslCerOptions> SslCers { get; set; }
         public ConsulOptions Consul { get; set; }
         public IdentityServerOptions IdentityServer { get; set; }
         public RabbitMQOptions RabbitMQ { get; set; }

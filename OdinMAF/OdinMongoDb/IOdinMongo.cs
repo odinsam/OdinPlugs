@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinMAF.OdinMongoDb
 {
-    public interface IOdinMongo : IAutoInjectWithParamas
+    public interface IOdinMongo : IAutoInjectWithParams
     {
         public void CreateCollection(string collectionName);
         public List<string> GetAllCollectionNames();

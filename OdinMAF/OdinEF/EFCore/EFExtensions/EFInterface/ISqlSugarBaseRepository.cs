@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using OdinPlugs.OdinMvcCore.OdinInject.InjectInterface;
+using OdinPlugs.OdinInject.InjectInterface;
 using SqlSugar;
 
 namespace OdinPlugs.OdinMAF.OdinEF.EFCore.EFExtensions.EFInterface

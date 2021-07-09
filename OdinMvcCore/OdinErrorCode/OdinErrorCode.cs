@@ -1,6 +1,6 @@
 using OdinPlugs.OdinCore.Models.ErrorCode;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinCacheManager;
-using OdinPlugs.OdinMvcCore.OdinInject;
 
 namespace OdinPlugs.OdinMvcCore.OdinErrorCode
 {
@@ -10,7 +10,7 @@ namespace OdinPlugs.OdinMvcCore.OdinErrorCode
 
         public OdinErrorCode()
         {
-            this.odinCacheManager = OdinInjectHelper.GetService<IOdinCacheManager>();
+            this.odinCacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
         }
         public ErrorCode_Model GetErrorModel(string code)
         {

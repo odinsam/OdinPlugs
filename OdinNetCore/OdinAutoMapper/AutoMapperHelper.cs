@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
-using OdinPlugs.OdinMvcCore.OdinInject;
+using OdinPlugs.OdinInject;
 
 namespace OdinPlugs.OdinNetCore.OdinAutoMapper
 {
@@ -18,7 +18,7 @@ namespace OdinPlugs.OdinNetCore.OdinAutoMapper
                 where TDestination : class
                 where TSource : class
         {
-            var mapper = OdinInjectHelper.GetService<IMapper>();
+            var mapper = OdinInjectCore.GetService<IMapper>();
             dynamic dobj = new ExpandoObject();
             Dictionary<string, object> dic = new Dictionary<string, object>();
             foreach (var prop in source.GetType().GetProperties())
@@ -31,7 +31,7 @@ namespace OdinPlugs.OdinNetCore.OdinAutoMapper
         public static TDestination DynamicMapper<TDestination>(Object source)
                 where TDestination : class
         {
-            var mapper = OdinInjectHelper.GetService<IMapper>();
+            var mapper = OdinInjectCore.GetService<IMapper>();
             dynamic dobj = new ExpandoObject();
             Dictionary<string, object> dic = new Dictionary<string, object>();
             foreach (var prop in source.GetType().GetProperties())

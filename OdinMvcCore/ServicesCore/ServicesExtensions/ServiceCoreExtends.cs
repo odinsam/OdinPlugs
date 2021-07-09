@@ -1,8 +1,8 @@
 using System;
 using System.Reflection;
 using OdinPlugs.OdinCore.Models;
+using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinMvcCore.ServicesCore.ServicesInterface;
 
 namespace OdinPlugs.OdinMvcCore.ServicesCore.ServicesExtensions
@@ -18,7 +18,7 @@ namespace OdinPlugs.OdinMvcCore.ServicesCore.ServicesExtensions
         public static OdinActionResult ServiceResult(this IService service,
                 Object data = null, string stateCode = "ok", string token = "")
         {
-            var odinErrorCodeHelper = OdinInjectHelper.GetService<IOdinErrorCode>();
+            var odinErrorCodeHelper = OdinInjectCore.GetService<IOdinErrorCode>();
             return new OdinActionResult
             {
 
@@ -49,7 +49,7 @@ namespace OdinPlugs.OdinMvcCore.ServicesCore.ServicesExtensions
 
         public static OdinActionResult ServiceError(this IService service, string stateCode = "sys-error", MethodBase methosBase = null, Object data = null, string token = "")
         {
-            var odinErrorCodeHelper = OdinInjectHelper.GetService<IOdinErrorCode>();
+            var odinErrorCodeHelper = OdinInjectCore.GetService<IOdinErrorCode>();
             var errorModel = odinErrorCodeHelper.GetErrorModel(stateCode);
             //throw new ServiceException(stateCode);
             return new OdinActionResult

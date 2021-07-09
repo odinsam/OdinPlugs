@@ -17,9 +17,7 @@ using OdinPlugs.OdinCore.Models.Aop;
 using OdinPlugs.OdinMAF.OdinMongoDb;
 using OdinPlugs.OdinMvcCore;
 using OdinPlugs.OdinMvcCore.OdinHttp;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinMiddleware.Utils;
-using OdinPlugs.OdinNetCore.OdinSnowFlake.SnowFlakeInterface;
 
 namespace OdinPlugs.OdinMiddleware
 {
@@ -51,9 +49,6 @@ namespace OdinPlugs.OdinMiddleware
 
 
             System.Console.WriteLine($"=========OdinAopMiddleware Response    start==========");
-
-            System.Console.WriteLine($"odinlink-return: [ {context.Response.Headers["odinlink-return"]} ]");
-
             System.Console.WriteLine($"=========OdinAopMiddleware Response    end==========");
             // 响应完成记录时间和存入日志
             context.Response.OnCompleted(() =>

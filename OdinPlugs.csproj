@@ -13,8 +13,11 @@
     <Product>$(OdinProduct)</Product>
     <Description>$(OdinDescription)</Description>
     <Version>$(OdinVersion)</Version>
-    <RepositoryType>$(OdinRepositoryType)</RepositoryType>
     <PackageTags>$(OdinPackageTags)</PackageTags>
+    <RepositoryUrl>$(OdinGitUrl)/$(OdinAssemblyName)</RepositoryUrl>
+    <RepositoryType>$(OdinRepositoryType)</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="OdinCore\" />
@@ -35,7 +38,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
-    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.6" />
     <PackageReference Include="LitJson" Version="0.17.0" />
     <PackageReference Include="XC.RSAUtil" Version="1.3.6" />
@@ -74,14 +76,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="5.1.0" />
     <PackageReference Include="JWT" Version="8.2.2" />
-    <PackageReference Include="Serilog.Sinks.MySQL" Version="4.0.0" />
     <PackageReference Include="AspectCore.Extensions.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="MySqlConnector" Version="1.3.11" />
     <PackageReference Include="SqlSugar.IOC" Version="1.5.0" />
-    <PackageReference Include="DotNetCore.CAP" Version="5.1.0" />
-    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="5.1.0" />
-    <PackageReference Include="DotNetCore.CAP.MySql" Version="5.1.0" />
-    <PackageReference Include="DotNetCore.CAP.Dashboard" Version="5.1.0" />
-    <PackageReference Include="DotNetCore.CAP.MongoDB" Version="5.1.0" />
     <PackageReference Include="SqlSugarCore.MySqlConnector" Version="5.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.4" />
@@ -92,27 +89,21 @@
     <PackageReference Include="zipkin4net" Version="1.5.0" />
     <PackageReference Include="zipkin4net.middleware.aspnetcore" Version="1.5.0" />
     <PackageReference Include="Mapster" Version="7.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
     <PackageReference Include="Serilog" Version="2.10.0"/>
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0"/>
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1"/>
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1"/>
     <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1"/>
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="OdinEnum\**" />
-    <Compile Remove="ConfigModel\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="OdinEnum\**" />
-    <EmbeddedResource Remove="ConfigModel\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="OdinEnum\**" />
-    <None Remove="ConfigModel\**" />
+    <PackageReference Include="Serilog.Sinks.MySQL" Version="4.0.0" />
+    <!-- <PackageReference Include="OdinPlugs.OdinInject" Version="1.0.1" /> -->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OdinPlugs.OdinUtils\OdinPlugs.OdinUtils.csproj" />
+    <ProjectReference Include="..\OdinPlugs.SnowFlake\OdinPlugs.SnowFlake.csproj" />
+    <ProjectReference Include="..\OdinPlugs.OdinInject\OdinPlugs.OdinInject.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="OdinPlugs.OdinInject" />
   </ItemGroup>
 </Project>

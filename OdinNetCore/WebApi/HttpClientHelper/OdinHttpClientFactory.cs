@@ -9,8 +9,8 @@ using System.Text;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
-using OdinPlugs.OdinMvcCore.OdinInject;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
+using OdinPlugs.OdinInject;
 
 namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper
 {
@@ -18,7 +18,7 @@ namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper
     {
         public async Task<T> GetRequestAsync<T>(string clientName, string uri, Dictionary<string, string> customHeaders = null, string mediaType = "application/json")
         {
-            var clientFactory = OdinInjectHelper.GetService<IHttpClientFactory>();
+            var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
             var client = clientFactory.CreateClient(clientName);
             var request = new HttpRequestMessage()
             {
@@ -33,7 +33,7 @@ namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper
         public async Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, Dictionary<string, string> customHeaders = null,
                                                     string mediaType = "application/json", Encoding encoder = null)
         {
-            var clientFactory = OdinInjectHelper.GetService<IHttpClientFactory>();
+            var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
             var client = clientFactory.CreateClient(clientName);
             var request = new HttpRequestMessage()
             {
