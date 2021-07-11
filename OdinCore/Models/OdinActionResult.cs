@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinInject;
+using OdinPlugs.OdinJson.ContractResolver;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinMvcCore.MvcCore;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
@@ -32,6 +33,8 @@ namespace OdinPlugs.OdinCore.Models
             Message = message;
             StatusCode = errorCode;
         }
+
+        [JsonConverter(typeof(JsonConverterLong))]
         public long? SnowFlakeId { get; set; }
         public Object Data { get; set; } = null;
         public string StatusCode { get; set; } = "ok";

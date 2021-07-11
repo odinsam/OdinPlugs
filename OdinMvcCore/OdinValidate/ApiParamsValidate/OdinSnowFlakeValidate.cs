@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinInject;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
-using OdinPlugs.SnowFlake.SnowFlakeInterface;
+using OdinPlugs.SnowFlake.SnowFlakePlugs.ISnowFlake;
 
 namespace OdinPlugs.OdinMvcCore.OdinValidate.ApiParamsValidate
 {

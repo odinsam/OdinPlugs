@@ -15,7 +15,7 @@ using OdinPlugs.OdinCore.Models.ApiLinkModels;
 using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
-using OdinPlugs.SnowFlake.SnowFlakeInterface;
+using OdinPlugs.SnowFlake.SnowFlakePlugs.ISnowFlake;
 
 namespace OdinPlugs.OdinMvcCore.OdinLinkMonitor
 {

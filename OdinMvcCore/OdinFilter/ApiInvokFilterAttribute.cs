@@ -16,7 +16,7 @@ using OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface;
 using OdinPlugs.OdinNetCore.OdinAutoMapper;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
-using OdinPlugs.SnowFlake.SnowFlakeInterface;
+using OdinPlugs.SnowFlake.SnowFlakePlugs.ISnowFlake;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
