@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using OdinPlugs.OdinCore.Models;
-using OdinPlugs.OdinMvcCore.OdinHttp;
+using OdinPlugs.OdinUtils.Utils.OdinHttp;
+using OdinPlugs.OdinUtils.Utils.OdinHttp.Models;
 
 namespace OdinPlugs.OdinMvcCore.OdinExtensions
 {

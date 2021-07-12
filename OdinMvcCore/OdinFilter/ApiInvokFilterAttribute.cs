@@ -8,15 +8,11 @@ using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinCore.Models.Aop;
-using OdinPlugs.OdinCore.Models.ApiLinkModels;
 using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinMongoDb;
 using OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils;
-using OdinPlugs.OdinMvcCore.OdinLinkMonitor.OdinLinkMonitorInterface;
 using OdinPlugs.OdinNetCore.OdinAutoMapper;
-using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
-using OdinPlugs.SnowFlake.SnowFlakePlugs.ISnowFlake;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
@@ -42,19 +38,6 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
             System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuting  start=============");
             stopWatch = Stopwatch.StartNew();
             stopWatch.Restart();
-            var odinLinkMonitor = OdinInjectCore.GetService<IOdinLinkMonitor>();
-            var snowFlakeId = OdinInjectCore.GetService<IOdinSnowFlake>().CreateSnowFlakeId();
-            // 创建链路，并生成起始节点
-            var linkMonitor = odinLinkMonitor.CreateOdinLinkMonitor(snowFlakeId);
-            context.HttpContext.Items.Add("odinlinkId", snowFlakeId);
-            context.HttpContext.Items.Add("odinlink", linkMonitor);
-            System.Console.WriteLine(JsonConvert.SerializeObject(linkMonitor[snowFlakeId].Peek()).ToJsonFormatString());
-
-            #region 保存link记录到mongodb--链路Start
-
-            #endregion
-
-
             if (context.ActionDescriptor.FilterDescriptors.Any(a => a.Filter.GetType() == typeof(ApiFilterAttribute)) ||
                 (!context.ActionDescriptor.FilterDescriptors.Any(a => a.Filter.GetType() == typeof(NoApiFilterAttribute)) &&
                     context.Controller.GetType().GetCustomAttributes(true).Any(a => a.GetType() == typeof(ApiAttribute))
@@ -80,15 +63,10 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
         public virtual void OnActionExecuted(ActionExecutedContext context)
         {
             System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
-            var odinLinkMonitor = OdinInjectCore.GetService<IOdinLinkMonitor>();
             stopWatch.Stop();
             var elapseTime = stopWatch.ElapsedMilliseconds;
-            Dictionary<long, Stack<OdinApiLinkModel>> linkMonitor = null;
             if (context.Exception == null)
             {
-                // 生成结束链路
-                linkMonitor = odinLinkMonitor.ApiInvokerOverLinkMonitor(context, elapseTime);
-
                 var apiInvokerModel = FilterHelper.GetApiInvokerModel(context.HttpContext, context.Result);
                 var apiInvokerRecordModel = apiInvokerModel as Aop_ApiInvokerRecord_Model;
                 apiInvokerRecordModel.EndTime = UnixTimeHelper.GetUnixDateTimeMS();
@@ -123,11 +101,8 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
             }
             else
             {
-                linkMonitor = odinLinkMonitor.ApiInvokerOverLinkMonitor(context, elapseTime, false);
                 System.Console.WriteLine(JsonConvert.SerializeObject(context.Exception).ToString());
             }
-            var linkMonitorId = Convert.ToInt64(context.HttpContext.Items["odinlinkId"]);
-            System.Console.WriteLine(JsonConvert.SerializeObject(linkMonitor[linkMonitorId].Peek()).ToJsonFormatString());
         }
     }
 }

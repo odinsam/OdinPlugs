@@ -1,16 +1,9 @@
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using AspectCore.DynamicProxy;
 using Polly;
-using Polly.CircuitBreaker;
-using Polly.Fallback;
-using Polly.NoOp;
-using Polly.Retry;
-using Polly.Timeout;
-using Polly.Wrap;
 
 namespace OdinPlugs.OdinMAF.OdinHystrix
 {

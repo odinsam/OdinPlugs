@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
-using System.Net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.Models.Aop;
 using OdinPlugs.OdinMvcCore.OdinAttr;
+using OdinPlugs.OdinUtils.Utils.OdinHttp;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils
@@ -22,7 +22,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils
             apiInvokerModel.ApiMethod = request.Method;
             apiInvokerModel.BeginTime = UnixTimeHelper.GetUnixDateTimeMS();
             apiInvokerModel.ApiBeginTime = DateTimeOffset.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            apiInvokerModel.InputParams = JsonConvert.SerializeObject(OdinHttp.OdinRequestParamasHelper.GetRequestParams(context));
+            apiInvokerModel.InputParams = JsonConvert.SerializeObject(OdinRequestParamasHelper.GetRequestParams(context));
             apiInvokerModel.Author = request.Headers["guid"].ToString();
             var endpoint = context.GetEndpoint();
             if (endpoint != null)
