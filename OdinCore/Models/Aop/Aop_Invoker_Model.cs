@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using OdinPlugs.OdinJson.ContractResolver;
-using OdinPlugs.OdinNetCore.OdinJson.ContractResolver;
-using OdinPlugs.OdinNetCore.OdinJson.JsonConvert;
+using OdinPlugs.OdinUtils.OdinJson.ContractResolver;
 
 namespace OdinPlugs.OdinCore.Models.Aop
 {

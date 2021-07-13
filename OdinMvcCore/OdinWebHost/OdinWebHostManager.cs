@@ -1,6 +1,5 @@
 using System;
 using System.Threading;
-using AspectCore.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 /*
