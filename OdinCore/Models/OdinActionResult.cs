@@ -8,6 +8,7 @@ using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinInject;
 using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinMvcCore.OdinErrorCode;
+using OdinPlugs.OdinMvcCore.ServicesCore.ServicesInterface;
 using OdinPlugs.OdinMvcCore.ViewModelValidate;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinUtils.OdinJson.ContractResolver;
@@ -181,6 +182,31 @@ namespace OdinPlugs.OdinCore.Models
                 ResponseCode = 200
             };
             // return null;
+        }
+
+
+        public static OdinActionResult OdinResultOk(this IService controller, int responseCode = 200)
+        {
+            return new OdinActionResult() { ResponseCode = responseCode };
+        }
+
+        public static OdinActionResult OdinResult(this IService controller, Object data, string message = "ok", int responseCode = 200,
+                    string errorCode = "ok", string token = "")
+        {
+            IOdinCacheManager cacheManager = OdinInjectCore.GetService<IOdinCacheManager>();
+            if (errorCode != "ok")
+            {
+                ErrorCode_Model errorModel = cacheManager.Get<ErrorCode_Model>(errorCode);
+            }
+            return new OdinActionResult
+            {
+                ResponseCode = responseCode,
+                Data = data,
+                Message = message,
+                StatusCode = errorCode,
+                Token = token,
+                Handle = ""
+            };
         }
     }
 }
