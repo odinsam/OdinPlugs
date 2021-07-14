@@ -58,7 +58,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
             var exceptionResult = new OdinActionResult
             {
                 SnowFlakeId = apiInvokerModel.Id,
-                Data = null,
+                Data = apiInvokerModel.ReturnValue,
                 StatusCode = errorCode.ErrorCode,
                 ErrorMessage = errorCode.ErrorMessage,
                 Message = errorCode.ShowMessage
