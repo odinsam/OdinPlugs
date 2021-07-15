@@ -38,13 +38,13 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
             var apiInvokerModel = FilterHelper.GetApiInvokerModel(context.HttpContext, context.Result);
             apiInvokerModel.ReturnValue = JsonConvert.SerializeObject(context.Exception);
 
-            #region 保存调用记录到mongodb
+            #region 保存调用记录apiInvoker到mongodb
             var apiInvokerRecordModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerRecord_Model>(apiInvokerModel);
             var mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
             mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerRecordModel);
             #endregion
 
-            #region    保存异常记录到mongodb
+            #region    保存异常记录apiInvokerThrow到mongodb
             var apiInvokerThrow = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerThrow_Model>(apiInvokerModel);
             apiInvokerThrow.Ex = context.Exception;
             apiInvokerThrow.ErrorMessage = context.Exception.Message;
