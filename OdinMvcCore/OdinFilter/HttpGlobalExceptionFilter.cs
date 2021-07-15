@@ -35,6 +35,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
 
         public void OnException(ExceptionContext context)
         {
+            System.Console.WriteLine("=========HttpGlobalExceptionFilter  start==========");
             var apiInvokerModel = FilterHelper.GetApiInvokerModel(context.HttpContext, context.Result);
             apiInvokerModel.ReturnValue = JsonConvert.SerializeObject(context.Exception);
 
@@ -63,8 +64,9 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 ErrorMessage = errorCode.ErrorMessage,
                 Message = errorCode.ShowMessage
             };
-            context.Result = exceptionResult;
-            context.ExceptionHandled = true;
+            // context.Result = exceptionResult;
+            // context.ExceptionHandled = false;
+            System.Console.WriteLine("=========HttpGlobalExceptionFilter  end==========");
 
             // var aopUri = options.Global.Url;
             // var aopApiPath = options.Global.SysApi.AopSysErrorRecord.ApiName;

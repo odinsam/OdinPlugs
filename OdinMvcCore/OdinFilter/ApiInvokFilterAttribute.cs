@@ -58,11 +58,12 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 //token检测 
                 //odinFilter.Executing_TokenValidate(apiCallRecordModel, strParams);
             }
+            System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuting  end=============");
         }
 
         public virtual void OnActionExecuted(ActionExecutedContext context)
         {
-            System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
+            System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  start=============");
             stopWatch.Stop();
             var elapseTime = stopWatch.ElapsedMilliseconds;
             if (context.Exception == null)
@@ -98,11 +99,15 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 apiInvokerRecordModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerRecord_Model>(apiInvokerModel);
                 mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerRecordModel);
                 #endregion
+                System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
             }
             else
             {
                 System.Console.WriteLine(JsonConvert.SerializeObject(context.Exception).ToString());
+                System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
+                throw context.Exception;
             }
+
         }
     }
 }

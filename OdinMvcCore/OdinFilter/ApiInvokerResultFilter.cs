@@ -30,6 +30,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
         /// <param name="context"></param>
         public void OnResultExecuting(ResultExecutingContext context)
         {
+            System.Console.WriteLine($"=============ApiInvokerResultFilter  OnResultExecuting  start=============");
             var result = context.Result as OdinActionResult;
             result.ResponseCode = 200;
             if (result != null)
@@ -51,6 +52,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 }
                 context.Result = result;
             }
+            System.Console.WriteLine($"=============ApiInvokerResultFilter  OnResultExecuting  end=============");
         }
     }
 }
