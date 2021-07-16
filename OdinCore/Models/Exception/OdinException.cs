@@ -1,5 +1,7 @@
 using OdinPlugs.OdinInject;
-using OdinPlugs.OdinMvcCore.OdinErrorCode;
+using OdinPlugs.OdinInject.InjectCore;
+using OdinPlugs.OdinInject.InjectPlugs.OdinErrorCodeInject;
+
 namespace OdinPlugs.OdinCore.Models.Exception
 {
     public class OdinException : System.Exception

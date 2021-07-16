@@ -8,14 +8,15 @@ using Newtonsoft.Json;
 using Serilog;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models.Aop;
-using OdinPlugs.OdinMAF.OdinMongoDb;
 using OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils;
 using OdinPlugs.OdinNetCore.OdinAutoMapper;
-using OdinPlugs.OdinMAF.OdinCacheManager;
 using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
 using OdinPlugs.OdinInject;
+using OdinPlugs.OdinInject.InjectPlugs.OdinMongoDbInject;
+using OdinPlugs.OdinInject.InjectPlugs.OdinCacheManagerInject;
+using OdinPlugs.OdinInject.InjectCore;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {

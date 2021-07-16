@@ -5,8 +5,9 @@ using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinInject;
-using OdinPlugs.OdinMAF.OdinMongoDb;
-using OdinPlugs.OdinSecurity.OdinRsa;
+using OdinPlugs.OdinInject.InjectCore;
+using OdinPlugs.OdinInject.InjectPlugs.OdinMongoDbInject;
+using OdinPlugs.OdinUtils.OdinSecurity.OdinRsa;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {

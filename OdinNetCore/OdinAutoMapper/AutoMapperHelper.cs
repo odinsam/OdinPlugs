@@ -4,6 +4,7 @@ using System.Dynamic;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
 using OdinPlugs.OdinInject;
+using OdinPlugs.OdinInject.InjectCore;
 
 namespace OdinPlugs.OdinNetCore.OdinAutoMapper
 {

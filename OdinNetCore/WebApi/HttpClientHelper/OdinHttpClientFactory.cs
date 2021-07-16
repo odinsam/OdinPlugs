@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.OdinInject;
+using OdinPlugs.OdinInject.InjectCore;
 
 namespace OdinPlugs.OdinNetCore.WebApi.HttpClientHelper
 {

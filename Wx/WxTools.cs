@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OdinPlugs.OdinInject;
+using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper;
 using OdinPlugs.OdinNetCore.WebApi.HttpClientHelper.HttpClientInterface;
 using OdinPlugs.OdinUtils.Utils.OdinTime;

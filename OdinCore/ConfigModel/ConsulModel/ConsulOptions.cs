@@ -1,6 +1,6 @@
 namespace OdinPlugs.OdinCore.ConfigModel.ConsulModel
 {
-    public class CheckOption
+    public class CheckOptionModel
     {
         public int DeregisterCriticalServiceAfter { get; set; }
         public string HealthApi { get; set; }
@@ -20,7 +20,7 @@ namespace OdinPlugs.OdinCore.ConfigModel.ConsulModel
         /// </summary>
         /// <value></value>
         public int Weight { get; set; } = 50;
-        public CheckOption ConsulCheck { get; set; }
+        public CheckOptionModel ConsulCheck { get; set; }
 
     }
 }

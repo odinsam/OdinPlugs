@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinInject;
+using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using OdinPlugs.SnowFlake.SnowFlakePlugs.ISnowFlake;
 

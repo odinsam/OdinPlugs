@@ -2,7 +2,8 @@ using System;
 using System.Reflection;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinInject;
-using OdinPlugs.OdinMvcCore.OdinErrorCode;
+using OdinPlugs.OdinInject.InjectCore;
+using OdinPlugs.OdinInject.InjectPlugs.OdinErrorCodeInject;
 using OdinPlugs.OdinMvcCore.ServicesCore.ServicesInterface;
 
 namespace OdinPlugs.OdinMvcCore.ServicesCore.ServicesExtensions
