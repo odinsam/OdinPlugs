@@ -9,8 +9,7 @@
         <OdinOutputType>Library</OdinOutputType>
 
         
-        <OdinPlugsVersion>1.0.0-alpha.210708</OdinPlugsVersion>
-        <OdinPackageId>$(OdinAssemblyName)</OdinPackageId>
+        <OdinPackageId>OdinPlugs</OdinPackageId>
         <OdinAuthors>odinSam</OdinAuthors>
         <OdinCompany>odinsam</OdinCompany>
         <OdinCopyright>版权所有 (c) odinsam 2021</OdinCopyright>
