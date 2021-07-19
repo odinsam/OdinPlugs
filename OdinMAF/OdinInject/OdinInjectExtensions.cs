@@ -25,7 +25,7 @@ namespace OdinPlugs.OdinMAF.OdinInject
                         opt.OptCm = _Options.CacheManager.Adapt<OdinPlugs.OdinInject.Models.CacheManagerModels.CacheManagerModel>();
                         opt.OptRbmq = _Options.Redis.Adapt<RedisModel>();
                     })
-                .AddOdinTransientCanal()
+                .AddOdinSingletonCanal()
                 .AddOdinCapInject(opt =>
                 {
                     opt.MysqlConnectionString = _Options.DbEntity.ConnectionString;
