@@ -25,6 +25,7 @@ namespace OdinPlugs.OdinMAF.OdinInject
                         opt.OptCm = _Options.CacheManager.Adapt<OdinPlugs.OdinInject.Models.CacheManagerModels.CacheManagerModel>();
                         opt.OptRbmq = _Options.Redis.Adapt<RedisModel>();
                     })
+                .AddOdinSingletonCapEventBus()
                 .AddOdinSingletonCanal()
                 .AddOdinCapInject(opt =>
                 {
