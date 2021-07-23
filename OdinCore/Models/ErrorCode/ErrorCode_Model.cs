@@ -1,5 +1,7 @@
 
 
+using System.Text.Json.Serialization;
+using OdinPlugs.OdinUtils.OdinJson.ContractResolver;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinCore.Models.ErrorCode
@@ -13,7 +15,8 @@ namespace OdinPlugs.OdinCore.Models.ErrorCode
         /// 自动编号
         /// </summary>
         /// <returns>自动编号</returns>
-        public long? Id { get; set; }
+        [JsonConverter(typeof(JsonConverterLong))]
+        public string Id { get; set; }
 
         public string ErrorCode { get; set; }
 
