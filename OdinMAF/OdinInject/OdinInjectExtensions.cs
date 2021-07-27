@@ -11,6 +11,12 @@ namespace OdinPlugs.OdinMAF.OdinInject
 {
     public static class OdinInjectExtensions
     {
+        /// <summary>
+        /// 注入常用的接口 - SnowFlake、MongoDb、Redis、CacheManager、CapEventBus、Canal、CapInject
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="_Options"></param>
+        /// <returns></returns>
         public static IServiceCollection AddOdinInject(this IServiceCollection services, ConfigOptions _Options)
         {
             services
