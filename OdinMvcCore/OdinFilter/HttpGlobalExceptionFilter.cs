@@ -9,7 +9,6 @@ using Serilog;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models.Aop;
 using OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils;
-using OdinPlugs.OdinNetCore.OdinAutoMapper;
 using OdinPlugs.OdinCore.Models.ErrorCode;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
@@ -17,6 +16,8 @@ using OdinPlugs.OdinInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinMongoDbInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinCacheManagerInject;
 using OdinPlugs.OdinInject.InjectCore;
+using OdinPlugs.OdinInject.InjectPlugs.OdinMapsterInject;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinAdapterMapper;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
 {
@@ -41,13 +42,13 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
             apiInvokerModel.ReturnValue = JsonConvert.SerializeObject(context.Exception);
 
             #region 保存调用记录apiInvoker到mongodb
-            var apiInvokerRecordModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerRecord_Model>(apiInvokerModel);
             var mongoHelper = OdinInjectCore.GetService<IOdinMongo>();
-            mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerRecordModel);
+            mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerModel);
             #endregion
 
             #region    保存异常记录apiInvokerThrow到mongodb
-            var apiInvokerThrow = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerThrow_Model>(apiInvokerModel);
+            var apiInvokerThrow = apiInvokerModel.OdinTypeAdapterBuilder<Aop_ApiInvokerRecord_Model, Aop_ApiInvokerThrow_Model>();
+            // var apiInvokerThrow = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerThrow_Model>(apiInvokerModel);
             apiInvokerThrow.Ex = context.Exception;
             apiInvokerThrow.ErrorMessage = context.Exception.Message;
             apiInvokerThrow.ErrorTime = UnixTimeHelper.GetUnixDateTimeMS();

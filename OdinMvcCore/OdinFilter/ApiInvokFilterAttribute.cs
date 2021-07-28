@@ -8,11 +8,10 @@ using Newtonsoft.Json;
 using OdinPlugs.OdinCore.ConfigModel;
 using OdinPlugs.OdinCore.Models;
 using OdinPlugs.OdinCore.Models.Aop;
-using OdinPlugs.OdinInject;
 using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinInject.InjectPlugs.OdinMongoDbInject;
 using OdinPlugs.OdinMvcCore.OdinFilter.FilterUtils;
-using OdinPlugs.OdinNetCore.OdinAutoMapper;
+using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinAdapterMapper;
 using OdinPlugs.OdinUtils.Utils.OdinTime;
 
 namespace OdinPlugs.OdinMvcCore.OdinFilter
@@ -85,7 +84,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
                 var responseResult = JsonConvert.DeserializeObject<OdinActionResult>(apiInvokerRecordModel.ReturnValue);
                 if (responseResult.StatusCode != "ok")
                 {
-                    var apiInvokerCatchModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerCatch_Model>(apiInvokerModel);
+                    var apiInvokerCatchModel = apiInvokerModel.OdinTypeAdapterBuilder<Aop_ApiInvokerRecord_Model, Aop_ApiInvokerCatch_Model>();
                     apiInvokerCatchModel.Ex = responseResult.Data as Exception;
                     apiInvokerCatchModel.ErrorMessage = responseResult.ErrorMessage;
                     apiInvokerCatchModel.ShowMessage = responseResult.Message;
@@ -97,8 +96,7 @@ namespace OdinPlugs.OdinMvcCore.OdinFilter
 
                 #region 保存调用记录到mongodb
                 apiInvokerModel.ElaspedTime = stopWatch.ElapsedMilliseconds;
-                apiInvokerRecordModel = OdinAutoMapper.DynamicMapper<Aop_ApiInvokerRecord_Model>(apiInvokerModel);
-                mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerRecordModel);
+                mongoHelper.AddModel<Aop_ApiInvokerRecord_Model>("Aop_ApiInvokerRecord", apiInvokerModel);
                 #endregion
                 System.Console.WriteLine($"=============ApiInvokerFilterAttribute  OnActionExecuted  end=============");
             }

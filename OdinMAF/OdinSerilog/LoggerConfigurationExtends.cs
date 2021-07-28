@@ -8,7 +8,7 @@ namespace OdinPlugs.OdinMAF.OdinSerilog
 {
     public static class LoggerConfigurationExtends
     {
-        public static LoggerConfiguration OdinWriteLog(this LoggerConfiguration loggerConfiguration, LogWriteFileModel logWriteFileModel, LogWriteToConsoleModel logWriteToConsole, LogWriteMySqlModel logWriteMySqlModel)
+        public static LoggerConfiguration OdinWriteLog(this LoggerConfiguration loggerConfiguration, LogWriteFileModel logWriteFileModel, LogWriteToConsoleModel logWriteToConsole, LogWriteMySqlModel logWriteMySqlModel = null)
         {
             return loggerConfiguration
                 .WriteTo.OdinWrite(
@@ -27,7 +27,7 @@ namespace OdinPlugs.OdinMAF.OdinSerilog
                     LogEventLevel.Warning, logWriteFileModel, logWriteToConsole, logWriteMySqlModel
                 );
         }
-        public static LoggerConfiguration OdinWrite(this LoggerSinkConfiguration loggerSinkConfiguration, LogEventLevel logLevel, LogWriteFileModel logWriteFileModel, LogWriteToConsoleModel logWriteToConsole, LogWriteMySqlModel logWriteMySqlModel)
+        public static LoggerConfiguration OdinWrite(this LoggerSinkConfiguration loggerSinkConfiguration, LogEventLevel logLevel, LogWriteFileModel logWriteFileModel, LogWriteToConsoleModel logWriteToConsole, LogWriteMySqlModel logWriteMySqlModel = null)
         {
             return loggerSinkConfiguration.Logger(fileLogger =>
             {
@@ -44,7 +44,7 @@ namespace OdinPlugs.OdinMAF.OdinSerilog
                        theme: logWriteToConsole.ConsoleTheme
                     );
                 }
-                if (logWriteMySqlModel.LogLevels != null && logWriteMySqlModel.LogLevels.ToList().Contains((int)logLevel) && logWriteMySqlModel != null)
+                if (logWriteMySqlModel != null && logWriteMySqlModel.LogLevels != null && logWriteMySqlModel.LogLevels.ToList().Contains((int)logLevel) && logWriteMySqlModel != null)
                 {
                     config.WriteTo.MySQL(logWriteMySqlModel.ConnectionString, "tb_logs");
                 }
